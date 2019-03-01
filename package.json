@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/F0rL/Lemon-ui/issues"
   },
-  "homepage": "https://github.com/F0rL/Lemon-ui#readme"
+  "homepage": "https://github.com/F0rL/Lemon-ui#readme",
+  "dependencies": {
+    "vue": "^2.6.7"
+  }
 }
