@@ -1,7 +1,9 @@
 import  Vue from 'vue'
-import Button from './button'
+import button from './button'
+import icon from './icon'
 
-Vue.component('g-button',Button)
+Vue.component('g-button',button)
+Vue.component('g-icon',icon)
 
 new Vue({
   el: '#app',
