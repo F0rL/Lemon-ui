@@ -15,11 +15,11 @@ new Vue({
 })
 
 //单元测试
-// import  chai from 'chai'
-// import spies from 'chai-spies'
-// chai.ues(spies)
+import chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 
-// const expect = chai.expect
+const expect = chai.expect
 {
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
