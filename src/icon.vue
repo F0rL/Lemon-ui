@@ -6,10 +6,11 @@
 <script>
   import './svg'
   export default {
+    name: 'YeziIcon',
     props: ['name']
   }
 </script>
-<style>
+<style lang="scss" scoped>
   .g-icon {
     width: 1.1em;
     height: 1.1em;

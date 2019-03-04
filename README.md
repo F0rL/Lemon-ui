@@ -30,7 +30,6 @@
     ```
 3. 引入 yezi-ui
 
-4. 引入svg symbols
 
 
 ## 文档
