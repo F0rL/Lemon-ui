@@ -19,7 +19,7 @@ new Vue({
 // import spies from 'chai-spies'
 // chai.ues(spies)
 
-const expect = chai.expect
+// const expect = chai.expect
 {
   const Constructor = Vue.extend(Button)
   const vm = new Constructor({
