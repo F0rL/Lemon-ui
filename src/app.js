@@ -15,9 +15,9 @@ new Vue({
 })
 
 //单元测试
-import  chai from 'chai'
-import spies from 'chai-spies'
-chai.ues(spies)
+// import  chai from 'chai'
+// import spies from 'chai-spies'
+// chai.ues(spies)
 
 const expect = chai.expect
 {
