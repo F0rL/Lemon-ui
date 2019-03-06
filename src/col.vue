@@ -37,7 +37,7 @@
   .col {
     height: 100px;
     /*background-color: deepskyblue;*/
-    width: 50%;
+    /*width: 50%;*/
     border: 1px solid red;
 
     $class-prefix: col-;
