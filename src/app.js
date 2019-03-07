@@ -36,14 +36,23 @@ new Vue({
     message: 'hi'
   },
   created() {
-
   },
   methods: {
     inputChange(e) {
       console.log(e.target.value);
     },
     showToast() {
-      this.$toast('我是message')
+      // this.$toast('我是 message', {
+      //   closeButton: {
+      //     text: '知道了',
+      //     callback() {
+      //       console.log('用户说他知道了')
+      //     }
+      //   }
+      // })
+      this.$toast('<p>段落<a href="http://qq.com">qqlink</a></p>', {
+        enableHtml: false
+      })
     }
   }
 })

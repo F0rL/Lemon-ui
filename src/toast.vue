@@ -1,7 +1,10 @@
 <template>
-  <div class="toast">
-    <slot></slot>
-    <div class="line"></div>
+  <div class="toast" ref="wrapper">
+    <div class="message">
+      <slot v-if="!enableHtml"></slot>
+      <div v-else v-html="$slots.default[0]"></div>
+    </div>
+    <div class="line" ref="line"></div>
     <span class="close" v-if="closeButton" @click="onClickClose">
       {{closeButton.text}}
     </span>
@@ -23,42 +26,56 @@
         type: Object,
         default: () => {
           return {
-            text: '关闭' , callback: (toast) => {
-              toast.close()
-            }
+            text: '关闭',
+            callback: undefined
           }
         }
+      },
+      enableHtml: {
+        type: Boolean,
+        default: false
       }
     },
     created() {
       // console.log(this.closeButton);
     },
     mounted() {
-      if(this.autoClose) {
-        setTimeout(() => {
-          this.close()
-        }, this.autoCloseDelay * 1000)
-      }
+      this.updateStyles()
+      this.execAutoClose()
     },
     methods: {
+      execAutoClose() {
+        if(this.autoClose) {
+          setTimeout(() => {
+            this.close()
+          }, this.autoCloseDelay * 1000)
+        }
+      },
+      updateStyles () {
+        this.$nextTick(() => {
+          this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`
+        })
+      },
       close() {
         this.$el.remove()
         this.$destroy()
       },
       onClickClose() {
         this.close()
-        this.closeButton.callback()
+        if(this.closeButton && typeof this.closeButton.callback === 'function') {
+          this.closeButton.callback()
+        }
       }
     }
   }
 </script>
 <style lang="scss" scoped>
   $font-size: 14px;
-  $toast-height: 40px;
+  $toast-min-height: 40px;
   $toast-bg: rgba(0,0,0,0.75);
   .toast {
     font-size: $font-size;
-    height: $toast-height;
+    min-height: $toast-min-height;
     color: #eee;
     padding: 0 16px;
     line-height: 1.8;
@@ -71,12 +88,15 @@
     background: $toast-bg;
     border-radius: 4px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+    .message {
+      padding: 4px 0;
+    }
     .close {
       padding-left: 16px;
+      flex-shrink: 0;
     }
     .line {
-      height: 100%;
-      border-left: 1px solid #eee;
+      border: 1px solid #eee;
       margin-left: 16px;
     }
   }
