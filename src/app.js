@@ -51,7 +51,14 @@ new Vue({
       //   }
       // })
       this.$toast('<p>段落<a href="http://qq.com">qqlink</a></p>', {
-        enableHtml: false
+        enableHtml: false,
+        position: 'middle',
+        closeButton: {
+          text: '忽略',
+          callback() {
+            console.log('已关闭')
+          }
+        }
       })
     }
   }
