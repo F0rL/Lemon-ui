@@ -52,7 +52,7 @@ new Vue({
       // })
       this.$toast(`智商目前为${parseInt(Math.random()*100)}`, {
         enableHtml: false,
-        position: 'middle',
+        position: 'bottom',
         closeButton: {
           text: '忽略',
           callback() {
