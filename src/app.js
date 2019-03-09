@@ -41,18 +41,19 @@ new Vue({
     inputChange(e) {
       console.log(e.target.value);
     },
-    showToast() {
-      // this.$toast('我是 message', {
-      //   closeButton: {
-      //     text: '知道了',
-      //     callback() {
-      //       console.log('用户说他知道了')
-      //     }
-      //   }
-      // })
+    showToast1() {
+      this.showToast('top')
+    },
+    showToast2() {
+      this.showToast('middle')
+    },
+    showToast3() {
+      this.showToast('bottom')
+    },
+    showToast(position) {
       this.$toast(`智商目前为${parseInt(Math.random()*100)}`, {
         enableHtml: false,
-        position: 'bottom',
+        position,
         closeButton: {
           text: '忽略',
           callback() {
