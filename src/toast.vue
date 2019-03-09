@@ -72,6 +72,7 @@
       close() {
         // console.log(this.$slots);
         this.$el.remove()
+        this.$emit('close')
         this.$destroy()
       },
       onClickClose() {
