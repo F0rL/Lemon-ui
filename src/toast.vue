@@ -45,6 +45,7 @@
     },
     created() {
       // console.log(this.closeButton);
+      // console.log(this.$slots.default[0]);
     },
     mounted() {
       this.updateStyles()
@@ -69,6 +70,7 @@
         })
       },
       close() {
+        // console.log(this.$slots);
         this.$el.remove()
         this.$destroy()
       },

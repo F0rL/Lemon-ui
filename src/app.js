@@ -50,7 +50,7 @@ new Vue({
       //     }
       //   }
       // })
-      this.$toast('<p>段落<a href="http://qq.com">qqlink</a></p>', {
+      this.$toast(`智商目前为${parseInt(Math.random()*100)}`, {
         enableHtml: false,
         position: 'middle',
         closeButton: {
