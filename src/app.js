@@ -48,8 +48,7 @@ Vue.use(plugin)
 new Vue({
   el: '#app',
   data: {
-    loading1: false,
-    message: 'hi'
+    selectedTab: 'sports',
   },
   created() {
   },
