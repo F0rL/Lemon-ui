@@ -13,7 +13,11 @@
     inject: ['eventBus'],
     mounted() {
       this.eventBus.$on('update:selected',(item, vm) => {
-        console.log(vm.$el);
+        //getBoundingClientRect()获取的是元素相对视窗的位置，line的left是相对位置，要做处理
+        let {width, height, top, left} = vm.$el.getBoundingClientRect()
+        let lineLeft = left - this.$el.getBoundingClientRect().left
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${lineLeft}px`
       })
     }
   }
@@ -30,7 +34,7 @@
       position: absolute;
       bottom: 0;
       border-bottom: 1px solid $line-color;
-      width: 100px;
+      transition: all .4s;
     }
     > .actions-wrapper {
       margin-left: auto;
