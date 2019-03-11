@@ -73,7 +73,7 @@
       close() {
         // console.log(this.$slots);
         this.$el.remove()
-        this.$emit('close')
+        this.$emit('close') //优化手动关闭，复原currentClose
         this.$destroy()
       },
       onClickClose() {
