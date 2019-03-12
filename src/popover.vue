@@ -1,9 +1,11 @@
 <template>
   <div class="popover" @click.stop="xxx">
-    <div class="content-wrapper" v-if="visiable" @click.stop>
+    <div ref="contentWrapper" class="content-wrapper" v-if="visiable">
       <slot name="content"></slot>
     </div>
-    <slot></slot>
+    <span ref="triggerWrapper">
+      <slot></slot>
+    </span>
   </div>
 </template>
 
@@ -18,18 +20,19 @@
         this.visiable = !this.visiable
         if (this.visiable === true) {
           this.$nextTick(() => {
+            document.body.appendChild(this.$refs.contentWrapper)
+            let {width, height, top, left} = this.$refs.triggerWrapper.getBoundingClientRect()
+            this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+            this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
             let eventHandler = () => {
-              console.log('document 隐藏 popover');
               this.visiable = false
               document.removeEventListener('click', eventHandler)
             }
             document.addEventListener('click', eventHandler)
           })
-        }else {
-          console.log('vm 隐藏 popover');
         }
       }
-    }
+    },
   }
 </script>
 
@@ -38,12 +41,11 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    .content-wrapper {
-      position: absolute;
-      bottom: 100%;
-      left: 0;
-      border: 1px solid red;
-      box-shadow: 0 0 3px rgba(0, 0, 0, .5);
-    }
+  }
+  .content-wrapper {
+    position: absolute;
+    border: 1px solid red;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    transform: translateY(-100%);
   }
 </style>
