@@ -5,7 +5,8 @@
 </template>
 <script>
   export default {
-    name: 'YeziTabsBody'
+    name: 'YeziTabsBody',
+    inject: ['eventBus'],
   }
 </script>
 <style>

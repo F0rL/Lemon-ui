@@ -31,6 +31,10 @@
       }
     },
     mounted() {
+      if(this.$children.length === 0) {
+        //throw new Error('tabs的子组件应该是tabs-head和tabs-name，但你没有写子组件')
+        console && console.warn && console.warn('tabs的子组件应该是tabs-head和tabs-name，但你没有写子组件')
+      }
       this.$children.forEach((vm) => {
         if(vm.$options.name === 'YeziTabsHead') {
           vm.$children.forEach((childVm) => {
