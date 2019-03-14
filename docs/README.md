@@ -1,5 +1,4 @@
 ---
-actionText: 起步 →
-actionLink: /introduction/
-footer: MIT Licensed | Copyright © 2018-present
 ---
+## <center>基于Vue的简易UI库</center>
+![](./.vuepress/public/img.png)
