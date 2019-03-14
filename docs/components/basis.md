@@ -7,8 +7,9 @@ sidebarDepth: 2
 基础按钮组件，点击触发业务逻辑。
 
 __基础用法__
-
+<ClientOnly>
 <button-demos></button-demos>
+</ClientOnly>
 ``` js
 data {
   isLoading: false
