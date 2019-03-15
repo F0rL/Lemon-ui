@@ -2,6 +2,7 @@ module.exports = {
   title: 'Yezi-ui',
   description: '一个简易、便捷的 UI 框架',
   themeConfig: {
+    displayAllHeaders: true,
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/install/' },
